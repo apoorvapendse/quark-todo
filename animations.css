@@ -1,0 +1,8 @@
+
+@keyframes slideUp {
+    from{
+        scale:0;
+        border-radius: 120px;
+        opacity: 0;
+    }
+}
