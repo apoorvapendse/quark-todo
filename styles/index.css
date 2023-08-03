@@ -13,6 +13,9 @@ body,html{
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    background-image: url("https://wallpaperaccess.com/full/2111.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     ::-webkit-scrollbar{
         display: none;
     }
@@ -23,20 +26,23 @@ body,html{
     position: relative;
     height: 80%;
     width: 80%;;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.095);
     animation: slideUp 2s ease-in-out;
     border-radius: 30px 30px;
     display: flex;
     justify-content: center;
+    transition: all 0.5s;
 }
-
+.main-container:hover{
+    background-color: black;
+}
 #header-row{
     padding:12px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 6vh;
-    background-color: blue;
+    /* background-color: blue; */
     color:white;
 }
 #task-container{
@@ -51,7 +57,7 @@ body,html{
     height: 60px;
     width: 60px;
     font-size: 5vh;
-    background-color: orange;
+    background-color: rgba(65, 105, 225, 0.656);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,13 +65,13 @@ body,html{
 }
 #add-task-btn:hover{
     color:white;
+    background-color: royalblue;
     rotate: 360deg;
     transform: translateY(-1vh);
     cursor: pointer;
 }
 .tasks{
     width: 100%;
-    background-color: blue;
     min-height: 100%;
     padding-bottom:12px;
     display: flex;
@@ -79,6 +85,7 @@ body,html{
     color:white;
     margin:10px;
     padding:12px;
+    font-size: 20px;
     border-radius: 30px 30px;
     background-color: #1f1f1f;
      width: 60%;
@@ -92,5 +99,66 @@ body,html{
     }
 
 .task:hover{
+    border:1px solid royalblue;
+    color:royalblue;
+    text-shadow: 1px 1px 22px white;
+    background-color: transparent;
+}
+
+#task-form-container{
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:5vh;
+    pointer-events: none;
+    opacity: 0;
+    height: 50vh;
+    border-radius: 25px;
+    width: 50vw;
+    background-color: royalblue;
+    transition: all 0.5s;
+    animation: 1s topToBottom alternate;
+}
+#task-form-container form{
+    display: flex;
+    flex-direction: column;
+    gap:5vh;
+    
+}
+#task-form-container h2{
+    color: white;
+    font-size: 3vw;
+}
+#task-form-container input,button{
+    border:none;
+    border-radius: 12px;
+    outline: none;
+    padding:0.6vw;
+    text-align: center;
+    transition: all 0.5s;
+}
+#task-form-container input:hover,button:hover{
+    box-shadow: 0 0 12px #1f1f1f;
+    cursor: pointer;
+}
+#task-form-container button:hover{
     filter: invert(1);
-    }
+}
+#task-form-container .active{
+    animation: topToBottom 0.5s;
+}
+
+.hide{
+    filter: blur(20px);
+    pointer-events: none;
+}
+.active{
+    opacity: 1 !important;
+    pointer-events: visible !important;
+    display: flex;
+    transition: all 0.5s;
+    
+}

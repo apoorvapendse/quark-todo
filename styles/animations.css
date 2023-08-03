@@ -6,3 +6,9 @@
         opacity: 0;
     }
 }
+@keyframes topToBottom {
+    from{
+        position: absolute;
+        top:1200px;
+    }
+}
