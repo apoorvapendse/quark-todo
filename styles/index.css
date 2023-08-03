@@ -125,15 +125,18 @@ body,html{
 #task-form-container form{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap:5vh;
     
 }
 #task-form-container h2{
     color: white;
-    font-size: 3vw;
+    font-size: 5vw;
 }
 #task-form-container input,button{
     border:none;
+    width: 70%;
     border-radius: 12px;
     outline: none;
     padding:0.6vw;
