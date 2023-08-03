@@ -13,12 +13,84 @@ body,html{
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    ::-webkit-scrollbar{
+        display: none;
+    }
 
 }
 
-.list-container{
+.main-container{
+    position: relative;
     height: 80%;
     width: 80%;;
     background-color: white;
     animation: slideUp 2s ease-in-out;
+    border-radius: 30px 30px;
+    display: flex;
+    justify-content: center;
 }
+
+#header-row{
+    padding:12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6vh;
+    background-color: blue;
+    color:white;
+}
+#task-container{
+    width:100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+#add-task-btn{
+    position: absolute;
+    bottom:-30px;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    font-size: 5vh;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s;
+}
+#add-task-btn:hover{
+    color:white;
+    rotate: 360deg;
+    transform: translateY(-1vh);
+    cursor: pointer;
+}
+.tasks{
+    width: 100%;
+    background-color: blue;
+    min-height: 100%;
+    padding-bottom:12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+.task{
+    color:white;
+    margin:10px;
+    padding:12px;
+    border-radius: 30px 30px;
+    background-color: #1f1f1f;
+     width: 60%;
+    height: 7%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border: 1px solid black;
+        transition: all 0.5s;
+    }
+
+.task:hover{
+    filter: invert(1);
+    }
