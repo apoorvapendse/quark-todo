@@ -12,3 +12,10 @@
         top:1200px;
     }
 }
+@keyframes removeTask {
+    to{
+        opacity: 0;;
+        background-color: gold;
+        transform: translateX(600px);
+    }
+}
