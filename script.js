@@ -38,6 +38,7 @@ taskform.addEventListener("submit",(e)=>{
 sortByPriority.addEventListener("click",()=>{
     let currentTasks = JSON.parse(localStorage.getItem("todos")) !== null ? JSON.parse(localStorage.getItem("todos")) : []
     prioritySort(currentTasks);
+    updateTasks();
 })
 
 lastAddedSort.addEventListener("click",()=>{

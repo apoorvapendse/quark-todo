@@ -43,8 +43,14 @@ function deleteTasks(id){
     document.getElementById(`${id}`).classList.add('removeTask')
 
     setTimeout(() => {
-        displayTasks(currentTasks)
         localStorage.setItem("todos", JSON.stringify(currentTasks))
+        if(sortByPriority){
+            prioritySort(currentTasks)
+        }
+        else{
+
+            displayTasks(currentTasks)
+        }
         updateTasks();
     }, 1000);
     
