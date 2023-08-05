@@ -1,9 +1,8 @@
 let tasksArray = document.querySelector(".tasks")
-
+let sortByPriority = false;
 function updateTasks(){
     let tasks = document.querySelectorAll('.task')
     tasks.forEach((task) => {
-        console.log(task)
         task.addEventListener("click", (e) => {
             console.log(e.target.id)
             deleteTasks(e.target.id)
@@ -14,7 +13,8 @@ function displayTasks(currentTasks){
     let displayStr = "";
 
     for(let i = 0 ; i < currentTasks.length;i++){
-        displayStr += `<span class="task" id=${i}>${currentTasks[i]}
+        displayStr += `<span class="task" id=${i}>${currentTasks[i].taskname}
+        <span >P${currentTasks[i].taskpriority}</span>
         </span>
         `
     }
@@ -22,10 +22,11 @@ function displayTasks(currentTasks){
     tasksArray.innerHTML = displayStr
 }
 
-let addTask = (taskname)=>{
+let addTask = (taskname,taskpriority)=>{
     let currentTasks = JSON.parse(localStorage.getItem("todos")) !== null ? JSON.parse(localStorage.getItem("todos")):[]
     console.log("currentTasks:",currentTasks);
-    currentTasks.push(taskname);
+    taskpriority = +taskpriority;
+    currentTasks.push({taskname,taskpriority});
     localStorage.setItem("todos",JSON.stringify(currentTasks))
     
     displayTasks(currentTasks);
@@ -51,4 +52,11 @@ function deleteTasks(id){
 
 }
 
-export {addTask,displayTasks,deleteTasks,updateTasks}
+
+function prioritySort(currentTasks){
+    let newlist = currentTasks.sort((a, b) => a.taskpriority - b.taskpriority);
+
+displayTasks(newlist)
+}
+
+export {addTask,displayTasks,deleteTasks,updateTasks,prioritySort}

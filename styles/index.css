@@ -10,6 +10,7 @@ body,html{
     width: 100%;
     background-color: black;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -92,7 +93,7 @@ body,html{
      width: 60%;
     height: 7%;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         cursor: pointer;
         border: 1px solid black;
         transition: all 0.5s;
@@ -169,4 +170,15 @@ body,html{
 .removeTask{
     transition: all 0.5s;
     animation: removeTask 1s forwards ;
+}
+.options{
+    display: flex;
+    gap:1vw;
+}
+.options button{
+    transition:  all 0.4s;
+}
+.options button:hover{
+    background-color: royalblue;
+    color:white;
 }
