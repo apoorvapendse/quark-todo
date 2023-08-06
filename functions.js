@@ -44,7 +44,7 @@ function deleteTasks(id){
 
     setTimeout(() => {
         localStorage.setItem("todos", JSON.stringify(currentTasks))
-        if(sortByPriority){
+        if(sortByPriority===true){
             prioritySort(currentTasks)
         }
         else{
@@ -52,7 +52,7 @@ function deleteTasks(id){
             displayTasks(currentTasks)
         }
         updateTasks();
-    }, 1000);
+    }, 500);
     
 
 
@@ -60,9 +60,16 @@ function deleteTasks(id){
 
 
 function prioritySort(currentTasks){
+    sortByPriority = true;
     let newlist = currentTasks.sort((a, b) => a.taskpriority - b.taskpriority);
 
 displayTasks(newlist)
 }
 
-export {addTask,displayTasks,deleteTasks,updateTasks,prioritySort}
+function lastAdded(){
+    sortByPriority = false;
+    let currentTasks = JSON.parse(localStorage.getItem("todos")) !== null ? JSON.parse(localStorage.getItem("todos")) : []
+    displayTasks(currentTasks)
+}
+
+export {addTask,displayTasks,deleteTasks,updateTasks,prioritySort,lastAdded}

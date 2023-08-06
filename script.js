@@ -1,11 +1,11 @@
-import {addTask, deleteTasks, displayTasks, updateTasks,prioritySort} from './functions.js';
+import {addTask, deleteTasks, displayTasks, updateTasks,prioritySort,lastAdded} from './functions.js';
 let addTaskButton = document.getElementById("add-task-btn")
 let taskFormContainer = document.getElementById("task-form-container")
 let tasklist = document.getElementById("task-container")
 let taskform = document.getElementById("task-form")
 let priorityEl = document.getElementById("priority") 
 
-let sortByPriority = document.getElementById("priority-btn")
+let sortByPriorityElement = document.getElementById("priority-btn")
 let lastAddedSort = document.getElementById("last-added-btn")
 
 //displaying previously added tasks 
@@ -35,16 +35,14 @@ taskform.addEventListener("submit",(e)=>{
 
 })
 
-sortByPriority.addEventListener("click",()=>{
+sortByPriorityElement.addEventListener("click",()=>{
     let currentTasks = JSON.parse(localStorage.getItem("todos")) !== null ? JSON.parse(localStorage.getItem("todos")) : []
     prioritySort(currentTasks);
     updateTasks();
 })
 
 lastAddedSort.addEventListener("click",()=>{
-    let currentTasks = JSON.parse(localStorage.getItem("todos")) !== null ? JSON.parse(localStorage.getItem("todos")) : []
-    displayTasks(currentTasks)
+    lastAdded();
 })
-
 
 updateTasks();
