@@ -70,6 +70,7 @@ function lastAdded(){
     sortByPriority = false;
     let currentTasks = JSON.parse(localStorage.getItem("todos")) !== null ? JSON.parse(localStorage.getItem("todos")) : []
     displayTasks(currentTasks)
+    updateTasks();
 }
 
 export {addTask,displayTasks,deleteTasks,updateTasks,prioritySort,lastAdded}

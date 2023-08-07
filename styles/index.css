@@ -180,5 +180,9 @@ body,html{
 }
 .options button:hover{
     background-color: royalblue;
-    color:white;
+    color:white !important;
+}
+
+label span{
+    color:"white"
 }
